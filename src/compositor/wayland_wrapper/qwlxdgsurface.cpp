@@ -84,7 +84,6 @@ XDGSurface::XDGSurface(XDGShellGlobal *shell, wl_client *client, uint32_t id, Su
     , m_window_size(0.0, 0.0)
     , m_resizeGrabber(0)
     , m_moveGrabber(0)
-    , m_configure_serial(0)
 {
     m_view = surface->compositor()->waylandCompositor()->createView(surface->waylandSurface());
     connect(surface->waylandSurface(), &QWaylandSurface::configure, this, &XDGSurface::configure);
@@ -100,7 +99,7 @@ void XDGSurface::sendConfigure(char state, int32_t width, int32_t height)
 {
     m_state.clear();
     m_state.push_back(state);
-    quint64 serial = m_configure_serial++;
+    quint64 serial = wl_display_next_serial(m_surface->compositor()->wl_display());
     m_configures.insert(serial);
     send_configure(width, height, m_state, serial);
 }

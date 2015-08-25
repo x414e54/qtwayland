@@ -114,8 +114,6 @@ private:
 
     QSet<quint64> m_configures;
 
-    quint64 m_configure_serial;
-
     void xdg_surface_destroy(Resource *resource) Q_DECL_OVERRIDE;
     void xdg_surface_set_parent(Resource *resource, struct ::wl_resource *parent) Q_DECL_OVERRIDE;
     void xdg_surface_set_title(Resource *resource, const QString &title) Q_DECL_OVERRIDE;
