@@ -8,7 +8,8 @@ WAYLANDSERVERSOURCES += \
     ../extensions/windowmanager.xml \
     ../3rdparty/protocol/wayland.xml \
     ../3rdparty/protocol/input-method.xml \
-    ../3rdparty/protocol/text.xml
+    ../3rdparty/protocol/text.xml \
+    ../3rdparty/protocol/xdg-shell.xml \
 
 HEADERS += \
     wayland_wrapper/qwlcompositor_p.h \
@@ -19,6 +20,7 @@ HEADERS += \
     wayland_wrapper/qwldisplay_p.h \
     wayland_wrapper/qwlextendedoutput_p.h \
     wayland_wrapper/qwlextendedsurface_p.h \
+    wayland_wrapper/qwlxdgsurface_p.h \
     wayland_wrapper/qwlinputdevice_p.h \
     wayland_wrapper/qwlinputmethod_p.h \
     wayland_wrapper/qwlinputmethodcontext_p.h \
@@ -48,6 +50,7 @@ SOURCES += \
     wayland_wrapper/qwldisplay.cpp \
     wayland_wrapper/qwlextendedoutput.cpp \
     wayland_wrapper/qwlextendedsurface.cpp \
+    wayland_wrapper/qwlxdgsurface.cpp \
     wayland_wrapper/qwlinputdevice.cpp \
     wayland_wrapper/qwlinputmethod.cpp \
     wayland_wrapper/qwlinputmethodcontext.cpp \

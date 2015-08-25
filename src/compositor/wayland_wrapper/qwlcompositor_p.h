@@ -79,6 +79,7 @@ class SurfaceExtensionGlobal;
 class SubSurfaceExtensionGlobal;
 class TouchExtensionGlobal;
 class QtKeyExtensionGlobal;
+class XDGShellGlobal;
 class TextInputManager;
 class InputPanel;
 class HardwareIntegration;
@@ -219,6 +220,7 @@ protected:
     SubSurfaceExtensionGlobal *m_subSurfaceExtension;
     TouchExtensionGlobal *m_touchExtension;
     QtKeyExtensionGlobal *m_qtkeyExtension;
+    XDGShellGlobal *m_xdgShellExtension;
     QScopedPointer<TextInputManager> m_textInputManager;
     QScopedPointer<InputPanel> m_inputPanel;
     QList<QWaylandGlobalInterface *> m_globals;

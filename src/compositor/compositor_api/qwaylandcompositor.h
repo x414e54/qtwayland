@@ -82,6 +82,7 @@ public:
         SubSurfaceExtension = 0x20,
         TextInputExtension = 0x40,
         HardwareIntegrationExtension = 0x80,
+        XDGShellExtension = 0x100,
 
         DefaultExtensions = WindowManagerExtension | OutputExtension | SurfaceExtension | QtKeyExtension | TouchExtension | HardwareIntegrationExtension
     };

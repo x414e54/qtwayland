@@ -55,6 +55,7 @@
 #include "qwlshellsurface_p.h"
 #include "qwlqttouch_p.h"
 #include "qwlqtkey_p.h"
+#include "qwlxdgsurface_p.h"
 #include "qwlinputdevice_p.h"
 #include "qwlinputpanel_p.h"
 #include "qwlregion_p.h"
@@ -128,6 +129,7 @@ Compositor::Compositor(QWaylandCompositor *qt_compositor, QWaylandCompositor::Ex
     , m_subSurfaceExtension(0)
     , m_touchExtension(0)
     , m_qtkeyExtension(0)
+    , m_xdgShellExtension(0)
     , m_textInputManager()
     , m_inputPanel()
     , m_retainSelection(false)
@@ -192,6 +194,7 @@ Compositor::~Compositor()
     delete m_subSurfaceExtension;
     delete m_touchExtension;
     delete m_qtkeyExtension;
+    delete m_xdgShellExtension;
 
     removeInputDevice(m_default_wayland_input_device);
     delete m_default_wayland_input_device;
@@ -370,6 +373,8 @@ void Compositor::initializeExtensions()
         m_touchExtension = new TouchExtensionGlobal(this);
     if (m_extensions & QWaylandCompositor::QtKeyExtension)
         m_qtkeyExtension = new QtKeyExtensionGlobal(this);
+    if (m_extensions & QWaylandCompositor::XDGShellExtension)
+        m_xdgShellExtension = new XDGShellGlobal(this);
     if (m_extensions & QWaylandCompositor::TextInputExtension) {
         m_textInputManager.reset(new TextInputManager(this));
         m_inputPanel.reset(new InputPanel(this));
